@@ -1,0 +1,22 @@
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: black;
+    color: yellow;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid yellow;
+    padding: 10px;
+}
+
+th {
+    background-color: darkred;
+}
