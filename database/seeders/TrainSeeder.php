@@ -16,14 +16,14 @@ class TrainSeeder extends Seeder
         $aziende = ['Trenitalia', 'Italo', 'Frecciarossa', 'Trenord', 'Intercity', 'Regionale'];
         $stazioni = ['Roma Termini', 'Milano Centrale', 'Napoli Centrale', 'Torino Porta Nuova', 'Venezia Santa Lucia', 'Bologna Centrale', 'Bari Centrale', 'Genova Piazza Principe', 'Pisa Centrale', 'Firenze SMN'];
 
-        for ($i = 0; $i < 10; $i++) { // Creiamo 10 treni
+        for ($i = 0; $i < 10; $i++) {
             $stazionePartenza = $faker->randomElement($stazioni);
             do {
                 $stazioneArrivo = $faker->randomElement($stazioni);
-            } while ($stazioneArrivo === $stazionePartenza); // Evitiamo che partenza e arrivo siano uguali
+            } while ($stazioneArrivo === $stazionePartenza);
 
-            $orarioPartenza = $faker->dateTimeBetween('now', '+3 days'); // Treni da oggi ai prossimi 3 giorni
-            $orarioArrivo = (clone $orarioPartenza)->modify('+' . rand(1, 6) . ' hours'); // Arrivo tra 1 e 6 ore dopo la partenza
+            $orarioPartenza = $faker->dateTimeBetween('now', '+3 days');
+            $orarioArrivo = (clone $orarioPartenza)->modify('+' . rand(1, 6) . ' hours');
 
             DB::table('trains')->insert([
                 'azienda' => $faker->randomElement($aziende),
